@@ -30,6 +30,7 @@ def determine_winner(round_results):
     winner = max(round_results, key=round_results.get)
     return winner
 
+round_number = 1
 while True:
     # Call the update_odds function to add new odds for each player
     odds = update_odds(odds)
@@ -37,10 +38,11 @@ while True:
     round_results = simulate_round(odds)
     # Determine the winner of the round
     winner = determine_winner(round_results)
-    print(f"Round One:")
+    print(f"Round {round_number}:")
     for player in round_results:
         print(f"{player} - {round_results[player]}")
     print(f"{winner} won the round\n")
+    round_number += 1
     # Check if the user wants to exit
     exit = input("Press 'q' to exit or any other key to continue: ")
     if exit == 'q':
